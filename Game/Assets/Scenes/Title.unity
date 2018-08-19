@@ -488,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -197}
+  m_AnchoredPosition: {x: 0, y: -192.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &604426132
@@ -523,7 +523,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Submitted to Kenney Jam 2018. All art from Kenney.nl
+  m_Text: 'Submitted to Extra Credits Jam 2018.
+
+    All art from Kenney.nl
+
+    BGM from Incompetech.com'
 --- !u!222 &604426133
 CanvasRenderer:
   m_ObjectHideFlags: 0
