@@ -6,6 +6,8 @@ public class TimeController : MonoBehaviour {
 
     private TimedObjectManager tom;
 
+    [SerializeField] private float InteractionRadius = 1f;
+
 	// Use this for initialization
 	void Start () {
         tom = GameObject.Find("TimedObjectManager").GetComponent<TimedObjectManager>();
@@ -23,6 +25,14 @@ public class TimeController : MonoBehaviour {
         {
             // scroll down
             tom.MoveTime(false);
+        }
+
+        Vector3 center = GetComponent<Transform>().position;
+        tom.UpdateNearObjectIndicators(center, InteractionRadius);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            tom.ToggleNearObjects(center, InteractionRadius);
         }
     }
 }

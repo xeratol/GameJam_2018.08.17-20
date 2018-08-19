@@ -15,6 +15,8 @@ public class TimedObjectManager : MonoBehaviour {
     private float lerpspeed;
 
     private Text Timer;
+    [SerializeField] private Sprite IndicateActive;
+    [SerializeField] private Sprite IndicateInactive;
 
 	// Use this for initialization
 	void Awake () {
@@ -31,7 +33,9 @@ public class TimedObjectManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        // Interpolate time for smoothing
         if (!Mathf.Equals(alpha, 1f))
         {
             alpha += Time.deltaTime / lerpspeed;
@@ -53,6 +57,7 @@ public class TimedObjectManager : MonoBehaviour {
     public void RegisterObject (GameObject TimedObject)
     {
         TimedObjectList.Add(TimedObject);
+        TimedObject.GetComponent<FrozenTimeBehavior>().SetIndicatorSprites(IndicateActive, IndicateInactive);
     }
 
     public void MoveTime (bool forward)
@@ -69,6 +74,32 @@ public class TimedObjectManager : MonoBehaviour {
         int seconds = (int)f - minutes * 60;
         int milli = (int)(f * 100f) % 100;
 
-        return ((nega ? "-" : "") + minutes.ToString("D1") + ":" + seconds.ToString("D2") + ":" + milli.ToString("D2"));
+        return ((nega ? "-" : "") + minutes.ToString() + ":" + seconds.ToString("D2") + ":" + milli.ToString("D2"));
+    }
+
+    public void ToggleNearObjects (Vector3 center, float radius)
+    {
+        foreach (GameObject g in TimedObjectList)
+        {
+            if (Vector3.SqrMagnitude(center - g.GetComponent<Transform>().position) < radius * radius)
+            {
+                g.GetComponent<FrozenTimeBehavior>().ToggleWantingToAct(CurrentTime);
+            }
+        }
+    }
+
+    public void UpdateNearObjectIndicators (Vector3 center, float radius)
+    {
+        foreach (GameObject g in TimedObjectList)
+        {
+            if (Vector3.SqrMagnitude(center - g.GetComponent<Transform>().position) < radius * radius)
+            {
+                g.GetComponent<FrozenTimeBehavior>().MoreVisibleIndicator(true);
+            }
+            else
+            {
+                g.GetComponent<FrozenTimeBehavior>().MoreVisibleIndicator(false);
+            }
+        }
     }
 }
