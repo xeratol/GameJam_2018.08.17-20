@@ -50,7 +50,7 @@ public class FrozenTimeBehavior : MonoBehaviour {
 
         if (ParticleSys)
         {
-            ParticleSys.Simulate((CurrentTime > 0f ? CurrentTime : 0f), true, (CurrentTime > 0f ? true : false));
+            ParticleSys.Simulate(CurrentTime, true, true);
         }
 
         if (Anim)
