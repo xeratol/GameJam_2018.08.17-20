@@ -143,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe9784db1ed2f34b9657d3c34e1a5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionTimeFrom: 0
-  ActionTimeTo: 5
+  ActionTime: 5
+  ActionDuration: 1
+  willAct: 0
   InitialVelocity: {x: 0, y: 2, z: 0}
   InitialAcceleration: {x: 0, y: -0.5, z: 0}
   AnimationState: 
@@ -458,8 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe9784db1ed2f34b9657d3c34e1a5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionTimeFrom: -512
-  ActionTimeTo: 512
+  ActionTime: -10
+  ActionDuration: 0
+  willAct: 0
   InitialVelocity: {x: 0, y: 0, z: 0}
   InitialAcceleration: {x: 0, y: 0, z: 0}
   AnimationState: Grounded
@@ -479,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78684fb644d19d44b6df6e61f8fc246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionRadius: 1
 --- !u!1 &1160853235
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,8 +628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe9784db1ed2f34b9657d3c34e1a5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionTimeFrom: 1
-  ActionTimeTo: 3
+  ActionTime: 3
+  ActionDuration: 3
+  willAct: 0
   InitialVelocity: {x: 0, y: 0, z: 0}
   InitialAcceleration: {x: 0, y: 0, z: 0}
   AnimationState: 
@@ -5227,7 +5231,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1550691144}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.7916055, y: -0.51335037, z: -6.2871094}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -71,4 +71,15 @@ public class TimedObjectManager : MonoBehaviour {
 
         return ((nega ? "-" : "") + minutes.ToString("D1") + ":" + seconds.ToString("D2") + ":" + milli.ToString("D2"));
     }
+
+    public void ToggleNearObjects(Vector3 center, float radius)
+    {
+        foreach (GameObject g in TimedObjectList)
+        {
+            if (Vector3.SqrMagnitude(center - g.GetComponent<Transform>().position) < radius * radius)
+            {
+                g.GetComponent<FrozenTimeBehavior>().ToggleWantingToAct(CurrentTime);
+            }
+        }
+    }
 }

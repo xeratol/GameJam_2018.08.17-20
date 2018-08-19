@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class FrozenTimeBehavior : MonoBehaviour {
 
-    [SerializeField] private float ActionTimeFrom;
-    [SerializeField] private float ActionTimeTo;
+    [SerializeField] private float ActionTime;
+    [Tooltip("Set to <= 0 for infinite duration")]
+    [SerializeField] private float ActionDuration;
+    [SerializeField] private bool willAct;
+    private bool isActing;
 
     private Vector3 InitialPosition;
     [SerializeField] private Vector3 InitialVelocity;
     [SerializeField] private Vector3 InitialAcceleration;
 
     private ParticleSystem ParticleSys;
+
     private Animator Anim;
     [SerializeField] private string AnimationState;
 
@@ -43,9 +47,23 @@ public class FrozenTimeBehavior : MonoBehaviour {
 
     public void MoveWithTime (float CurrentTime)
     {
-        CurrentTime = Mathf.Clamp(CurrentTime, ActionTimeFrom, ActionTimeTo);
+        if (!willAct)
+        {
+            return;
+        }
 
-        CurrentTime -= ActionTimeFrom;
+        if (ActionDuration > 0)
+        {
+            CurrentTime = Mathf.Clamp(CurrentTime, ActionTime, ActionTime + ActionDuration);
+        }
+        else if (CurrentTime < ActionTime)
+        {
+            CurrentTime = ActionTime;
+        }
+
+        CurrentTime -= ActionTime;
+        isActing = CurrentTime > 0;
+
         GetComponent<Transform>().position = (InitialPosition) + (CurrentTime * InitialVelocity) + (.5f * CurrentTime * CurrentTime * InitialAcceleration);
 
         if (ParticleSys)
@@ -57,6 +75,21 @@ public class FrozenTimeBehavior : MonoBehaviour {
         {
             Anim.Play(AnimationState, -1, CurrentTime);
             Anim.speed = 0;
+        }
+    }
+
+    public void ToggleWantingToAct (float time)
+    {
+        if (isActing)
+        {
+            return;
+        }
+
+        willAct = !willAct;
+
+        if (willAct)
+        {
+            ActionTime = time;
         }
     }
 }
