@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 70164409455847678}
   - component: {fileID: 50511004239956066}
   - component: {fileID: 114758439773718940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Akusan_Adventurer
   m_TagString: Player
   m_Icon: {fileID: 0}
