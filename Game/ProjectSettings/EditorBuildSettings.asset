@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Title.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Akusan_TutorialLevel.unity
+    guid: 1be27cac958e82546be5d5f72c6d3557
+  - enabled: 1
+    path: Assets/Scenes/Akusan_Level1.unity
+    guid: ec29e443e4c737240b0908a908b9649c
+  - enabled: 1
+    path: Assets/Scenes/Dario_TutorialLevel.unity
+    guid: a39ef8605a837334a954e5634ac385d7
   m_configObjects: {}
