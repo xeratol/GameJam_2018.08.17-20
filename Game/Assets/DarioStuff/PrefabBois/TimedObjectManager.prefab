@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcc0b96681a5e44390e8f188c7f0ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IndicateActive: {fileID: 21300000, guid: 5e69e4d467d2aeb4fb68290a006a8700, type: 3}
+  IndicateInactive: {fileID: 21300000, guid: a018f52d7cd434a4ca25c4f522058fc8, type: 3}
 --- !u!222 &222146141800587344
 CanvasRenderer:
   m_ObjectHideFlags: 1

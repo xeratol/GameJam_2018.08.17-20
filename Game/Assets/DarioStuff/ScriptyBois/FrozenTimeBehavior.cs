@@ -19,6 +19,11 @@ public class FrozenTimeBehavior : MonoBehaviour {
     private Animator Anim;
     [SerializeField] private string AnimationState;
 
+    private SpriteRenderer ActivenessIndicator;
+    private Sprite ActiveSprite;
+    private Sprite InactiveSprite;
+    [SerializeField] private Vector3 IndicatorOffset;
+
     // Use this for initialization
     void Start()
     {
@@ -38,6 +43,13 @@ public class FrozenTimeBehavior : MonoBehaviour {
             Anim.Play(AnimationState, -1, 0f);
             Anim.speed = 0;
         }
+
+        GameObject SpriteChild = new GameObject("Activeness Indicator");
+        ActivenessIndicator = SpriteChild.AddComponent<SpriteRenderer>() as SpriteRenderer;
+        SpriteChild.transform.parent = gameObject.transform;
+        SpriteChild.transform.localPosition = IndicatorOffset;
+
+        ActivenessIndicator.sprite = willAct ? ActiveSprite : InactiveSprite;
     }
 	
 	// Update is called once per frame
@@ -63,6 +75,7 @@ public class FrozenTimeBehavior : MonoBehaviour {
 
         CurrentTime -= ActionTime;
         isActing = CurrentTime > 0;
+        ActivenessIndicator.sprite = isActing ? null : ActiveSprite;
 
         GetComponent<Transform>().position = (InitialPosition) + (CurrentTime * InitialVelocity) + (.5f * CurrentTime * CurrentTime * InitialAcceleration);
 
@@ -86,10 +99,22 @@ public class FrozenTimeBehavior : MonoBehaviour {
         }
 
         willAct = !willAct;
-
+        ActivenessIndicator.sprite = willAct ? ActiveSprite : InactiveSprite;
+        
         if (willAct)
         {
             ActionTime = time;
         }
+    }
+
+    public void SetIndicatorSprites (Sprite Active, Sprite Inactive)
+    {
+        ActiveSprite = Active;
+        InactiveSprite = Inactive;
+    }
+
+    public void MoreVisibleIndicator (bool enlarge)
+    {
+        ActivenessIndicator.transform.localScale = enlarge ? new Vector3(1.5f, 1.5f, 1.5f) : new Vector3(1f, 1f, 1f);
     }
 }

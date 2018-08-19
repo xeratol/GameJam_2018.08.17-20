@@ -27,9 +27,12 @@ public class TimeController : MonoBehaviour {
             tom.MoveTime(false);
         }
 
+        Vector3 center = GetComponent<Transform>().position;
+        tom.UpdateNearObjectIndicators(center, InteractionRadius);
+
         if (Input.GetMouseButtonDown(0))
         {
-            tom.ToggleNearObjects(GetComponent<Transform>().position, InteractionRadius);
+            tom.ToggleNearObjects(center, InteractionRadius);
         }
     }
 }

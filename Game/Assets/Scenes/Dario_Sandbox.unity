@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 43908409}
   - component: {fileID: 43908407}
   - component: {fileID: 43908408}
+  - component: {fileID: 43908412}
   m_Layer: 0
   m_Name: ObjectTest
   m_TagString: Untagged
@@ -149,6 +150,7 @@ MonoBehaviour:
   InitialVelocity: {x: 0, y: 2, z: 0}
   InitialAcceleration: {x: 0, y: -0.5, z: 0}
   AnimationState: 
+  IndicatorOffset: {x: 0.5, y: 0.5, z: 0}
 --- !u!65 &43908408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -216,6 +218,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43908412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 43908406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8962264, g: 0.40161088, b: 0.40161088, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &87637024
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +481,7 @@ MonoBehaviour:
   InitialVelocity: {x: 0, y: 0, z: 0}
   InitialAcceleration: {x: 0, y: 0, z: 0}
   AnimationState: Grounded
+  IndicatorOffset: {x: -0.4, y: 1.2, z: 0}
 --- !u!1 &1029534822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce,
@@ -634,6 +651,7 @@ MonoBehaviour:
   InitialVelocity: {x: 0, y: 0, z: 0}
   InitialAcceleration: {x: 0, y: 0, z: 0}
   AnimationState: 
+  IndicatorOffset: {x: 0, y: 0, z: 0.25}
 --- !u!199 &1550691146
 ParticleSystemRenderer:
   serializedVersion: 6
