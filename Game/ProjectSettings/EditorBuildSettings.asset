@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dario_TutorialLevel.unity
     guid: a39ef8605a837334a954e5634ac385d7
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 56db775ba057f5f42bcb85252d17e37b
   m_configObjects: {}
