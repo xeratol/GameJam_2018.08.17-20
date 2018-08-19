@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Akusan_Level1.unity
     guid: ec29e443e4c737240b0908a908b9649c
   - enabled: 1
+    path: Assets/Scenes/Akusan_Level2.unity
+    guid: f2d81c46b780ffd459d7af7eff5e9eb0
+  - enabled: 1
     path: Assets/Scenes/Dario_TutorialLevel.unity
     guid: a39ef8605a837334a954e5634ac385d7
   - enabled: 1
